@@ -1,6 +1,6 @@
 package models.Interfaces;
 
-public interface LaptopInterface {
+public interface LaptopInterface  {
 
 
     String getModel();
@@ -14,5 +14,5 @@ public interface LaptopInterface {
     double getScreenSize();
 
     void setScreenSize(double screenSize);
-
+    void printInfo();
 }

@@ -14,7 +14,7 @@ public class ReaderWriterService {
         return (Files.readAllLines(Paths.get(path)));
     }
     public static void writer(String path,String write ) throws IOException {
-        Files.write(Paths.get(path), (write).getBytes(), StandardOpenOption.APPEND);
+        Files.write(Paths.get(path), (write+"\n").getBytes(), StandardOpenOption.APPEND);
     }
 
 }

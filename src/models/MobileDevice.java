@@ -39,5 +39,6 @@ public abstract class MobileDevice implements ShopItemInterface {
             this.batteryCap = batteryCap;
         }
     }
+
 }
 

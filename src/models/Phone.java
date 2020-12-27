@@ -31,4 +31,15 @@ public class Phone extends MobileDevice implements PhoneInterface {
     public String toString() {
         return String.join(",", this.getModel(), Integer.toString(this.getBatteryCap()), Double.toString(this.getScreenSize()), this.getScreenResolution(), Double.toString(this.getPrice()));
     }
+
+    @Override
+    public void printInfo() {
+
+        System.out.println("Phone model: " + this.getModel());
+        System.out.println("Phone battery capacity: " + this.getBatteryCap());
+        System.out.println("Phone screen size: " + this.getScreenSize());
+        System.out.println("Phone resolution: " + this.getScreenResolution());
+        System.out.println("Price of a phone: " + this.getPrice());
+        System.out.println("--------------------------------------------");
+    }
 }

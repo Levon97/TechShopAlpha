@@ -12,8 +12,8 @@ import java.util.Scanner;
 public class PhoneService {
     private static final String PHONE_PHAT = "data/phoneList.txt";
 
-    public static List<PhoneInterface> phoneReader() throws IOException {
-        List<PhoneInterface> listOfPhones = new ArrayList<>();
+    public static List<Phone> phoneReader() throws IOException {
+        List<Phone> listOfPhones = new ArrayList<>();
         Phone phone = new Phone();
         List<String> lines = ReaderWriterService.reader(PHONE_PHAT);
         for (String x : lines) {
@@ -27,6 +27,14 @@ public class PhoneService {
         }
         return listOfPhones;
     }
+
+    public static void printPhoneInfo(List<Phone> list) throws IOException {
+        System.out.println("--------------Phones parameters--------------");
+        for (PhoneInterface x : list) {
+            x.printInfo();
+        }
+    }
+
     public static void addPhone() throws IOException {
         Phone phone = new Phone();
         Scanner s = new Scanner(System.in);

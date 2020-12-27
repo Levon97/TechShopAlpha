@@ -1,6 +1,6 @@
 package models.Interfaces;
 
-import models.MobileDevice;
+
 
 public interface SmartWatchInterface{
 
@@ -11,5 +11,6 @@ public interface SmartWatchInterface{
     double getStrapLength();
 
     void setStrapLength(double strapLength);
+    void printInfo();
 
 }

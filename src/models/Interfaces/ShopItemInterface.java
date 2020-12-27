@@ -1,6 +1,6 @@
 package models.Interfaces;
 
-public interface ShopItemInterface {
+public interface ShopItemInterface  {
 
 
     String getModel();
@@ -10,4 +10,6 @@ public interface ShopItemInterface {
     double getPrice();
 
     void setPrice(double price);
+
+
 }

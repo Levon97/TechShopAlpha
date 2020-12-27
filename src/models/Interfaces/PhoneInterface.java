@@ -1,5 +1,7 @@
 package models.Interfaces;
 
+import service.ShopItemService;
+
 public interface PhoneInterface {
 
     double getScreenSize();
@@ -9,5 +11,6 @@ public interface PhoneInterface {
     String getScreenResolution();
 
     void setScreenResolution(String screenResolution);
+    void printInfo();
 
 }
