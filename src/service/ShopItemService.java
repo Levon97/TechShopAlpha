@@ -21,10 +21,10 @@ public class ShopItemService {
     }
 
 
-    public static <T extends ShopItemInterface> List<T> searchByPrice(List<T> shopItems, String model) {
+    public static <T extends ShopItemInterface> List<T> searchByModel(List<T> shopItems, String model) {
         List<T> searchMatches = new ArrayList<>();
         for (T x : shopItems) {
-            if (x.getModel().equals(model)) {
+            if (x.getModel().equalsIgnoreCase(model)) {
                 searchMatches.add(x);
             }
         }

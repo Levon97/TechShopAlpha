@@ -48,5 +48,10 @@ public class SmartWatchService {
         smartWatch.setPrice(s.nextDouble());
         ReaderWriterService.writer(PATH_SM, smartWatch.toString());
     }
+    public static void search() throws IOException {
+        Scanner ss = new Scanner(System.in);
+        System.out.println("Enter model name");
+        printWatchInfo(ShopItemService.searchByModel(smartWatchReader(),ss.nextLine()));
+    }
 
 }

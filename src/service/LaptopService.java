@@ -59,4 +59,9 @@ public class LaptopService {
 
         ReaderWriterService.writer(PATH_LAPTOP,laptop.toString());
     }
+    public static void search() throws IOException {
+        Scanner ss = new Scanner(System.in);
+        System.out.println("Enter model name");
+        printLaptopInfo(ShopItemService.searchByModel(laptopReader(),ss.nextLine()));
+    }
 }

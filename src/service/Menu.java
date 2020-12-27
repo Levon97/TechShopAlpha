@@ -1,8 +1,7 @@
 package service;
 
 
-import models.Interfaces.ShopItemInterface;
-import models.Laptop;
+import models.SmartWatch;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -82,7 +81,8 @@ public class Menu {
             System.out.println("3: Most expensive laptop");
             System.out.println("4: Lowest priced Laptop");
             System.out.println("5: Add laptop");
-            System.out.println("6: Back to main menu");
+            System.out.println("6: Search laptop by model");
+            System.out.println("7: Back to main menu");
             int j = s.nextInt();
             switch (j) {
                 case 1:
@@ -101,7 +101,7 @@ public class Menu {
                     System.out.println("Enter the other limit");
                     b = s.nextDouble();
                     try {
-                        LaptopService.printLaptopInfo(ShopItemService.searchByPriceInterval(LaptopService.laptopReader(),a,b));
+                        LaptopService.printLaptopInfo(ShopItemService.searchByPriceInterval(LaptopService.laptopReader(), a, b));
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -129,6 +129,13 @@ public class Menu {
                     }
                     break;
                 case 6:
+                    try {
+                        LaptopService.search();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case 7:
                     isMenuActive = false;
                     break;
                 default:
@@ -136,7 +143,6 @@ public class Menu {
             }
         }
     }
-
 
 
     public static void phoneMenu() {
@@ -149,7 +155,8 @@ public class Menu {
             System.out.println("3: Most expensive phone in list");
             System.out.println("4: Lowest priced phone in list");
             System.out.println("5: Add phone to list");
-            System.out.println("6: Back to main menu");
+            System.out.println("6: Search phone by model");
+            System.out.println("7: Back to main menu");
             int j = s.nextInt();
             switch (j) {
                 case 1:
@@ -168,7 +175,7 @@ public class Menu {
                     System.out.println("Enter the other limit");
                     b = s.nextDouble();
                     try {
-                        PhoneService.printPhoneInfo(ShopItemService.searchByPriceInterval(PhoneService.phoneReader(),a,b));
+                        PhoneService.printPhoneInfo(ShopItemService.searchByPriceInterval(PhoneService.phoneReader(), a, b));
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -196,6 +203,13 @@ public class Menu {
                     }
                     break;
                 case 6:
+                    try {
+                        PhoneService.search();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case 7:
                     isMenuActive = false;
                     break;
                 default:
@@ -214,7 +228,8 @@ public class Menu {
             System.out.println("3: Most expensive smart watch in list");
             System.out.println("4: Lowest priced smart watch in list");
             System.out.println("5: Add smart watch to list");
-            System.out.println("6: Back to main menu");
+            System.out.println("6: Search smart watch by model");
+            System.out.println("7: Back to main menu");
             int j = s.nextInt();
             switch (j) {
                 case 1:
@@ -233,7 +248,7 @@ public class Menu {
                     System.out.println("Enter the other limit");
                     b = s.nextDouble();
                     try {
-                        SmartWatchService.printWatchInfo(ShopItemService.searchByPriceInterval(SmartWatchService.smartWatchReader(),a,b));
+                        SmartWatchService.printWatchInfo(ShopItemService.searchByPriceInterval(SmartWatchService.smartWatchReader(), a, b));
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -261,6 +276,13 @@ public class Menu {
                     }
                     break;
                 case 6:
+                    try {
+                        SmartWatchService.search();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case 7:
                     isMenuActive = false;
                     break;
                 default:

@@ -51,10 +51,11 @@ public class PhoneService {
         phone.setPrice(s.nextDouble());
             ReaderWriterService.writer(PHONE_PHAT,phone.toString());
     }
-
-
-
-
+    public static void search() throws IOException {
+        Scanner ss = new Scanner(System.in);
+        System.out.println("Enter model name");
+        printPhoneInfo(ShopItemService.searchByModel(phoneReader(),ss.nextLine()));
+    }
 
 
 }
