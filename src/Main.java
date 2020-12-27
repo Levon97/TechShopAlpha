@@ -4,6 +4,10 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) {
-        Menu.phoneMenu();
+        try {
+            Menu.authorizationMenu();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
