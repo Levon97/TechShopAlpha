@@ -3,10 +3,9 @@ package service;
 import models.Interfaces.ShopItemInterface;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.lang.Double;
+
 
 public class ShopItemService {
 
@@ -24,7 +23,7 @@ public class ShopItemService {
     public static <T extends ShopItemInterface> List<T> searchByModel(List<T> shopItems, String model) {
         List<T> searchMatches = new ArrayList<>();
         for (T x : shopItems) {
-            if (x.getModel().contains(model)) {
+            if (x.getModel().toLowerCase().contains(model.toLowerCase())) {
                 searchMatches.add(x);
             }
         }
