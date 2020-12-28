@@ -82,7 +82,8 @@ public class Menu {
             System.out.println("4: Lowest priced Laptop");
             System.out.println("5: Add laptop");
             System.out.println("6: Search laptop by model");
-            System.out.println("7: Back to main menu");
+            System.out.println("7: Delete Laptops by Models");
+            System.out.println("8: Back to main menu");
             int j = s.nextInt();
             switch (j) {
                 case 1:
@@ -136,6 +137,15 @@ public class Menu {
                     }
                     break;
                 case 7:
+                    try {
+                        System.out.println("Enter the model");
+                        LaptopService.deleteLaptop();
+                        System.out.println("Deleting is done");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case 8:
                     isMenuActive = false;
                     break;
                 default:
@@ -156,7 +166,8 @@ public class Menu {
             System.out.println("4: Lowest priced phone in list");
             System.out.println("5: Add phone to list");
             System.out.println("6: Search phone by model");
-            System.out.println("7: Back to main menu");
+            System.out.println("7: Deleting phones by models");
+            System.out.println("8: Back to main menu");
             int j = s.nextInt();
             switch (j) {
                 case 1:
@@ -210,6 +221,15 @@ public class Menu {
                     }
                     break;
                 case 7:
+                    try {
+                        System.out.println("Enter the model");
+                        PhoneService.deletePhone();
+                        System.out.println("Deleting is done");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case 8:
                     isMenuActive = false;
                     break;
                 default:
@@ -229,7 +249,8 @@ public class Menu {
             System.out.println("4: Lowest priced smart watch in list");
             System.out.println("5: Add smart watch to list");
             System.out.println("6: Search smart watch by model");
-            System.out.println("7: Back to main menu");
+            System.out.println("7: Deleting smart watches by models");
+            System.out.println("8: Back to main menu");
             int j = s.nextInt();
             switch (j) {
                 case 1:
@@ -283,6 +304,15 @@ public class Menu {
                     }
                     break;
                 case 7:
+                    try {
+                        System.out.println("Enter the model");
+                        SmartWatchService.deleteSmartWatch();
+                        System.out.println("Deleting is done");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case 8:
                     isMenuActive = false;
                     break;
                 default:

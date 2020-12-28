@@ -58,4 +58,9 @@ public class PhoneService {
     }
 
 
+    public static void deletePhone() throws IOException {
+        Scanner ss = new Scanner(System.in);
+        ReaderWriterService.deleteLine(PHONE_PHAT,ss.nextLine());
+    }
+
 }

@@ -15,7 +15,7 @@ public class SmartWatchService {
         List<String> lines = ReaderWriterService.reader(PATH_SM);
         List<SmartWatch> listOfSW = new ArrayList<>();
         SmartWatch smartWatch = new SmartWatch();
-        for (String x : lines){
+        for (String x : lines) {
             String[] sWParameters = x.split(",");
             SmartWatch watch = new SmartWatch();
             watch.setModel(sWParameters[0]);
@@ -27,12 +27,14 @@ public class SmartWatchService {
         }
         return listOfSW;
     }
+
     public static void printWatchInfo(List<SmartWatch> list) throws IOException {
         System.out.println("-------------Smart watches parameters-------------");
         for (SmartWatchInterface x : list) {
             x.printInfo();
         }
     }
+
     public static void addSmartWatch() throws IOException {
         SmartWatch smartWatch = new SmartWatch();
         Scanner s = new Scanner(System.in);
@@ -48,10 +50,18 @@ public class SmartWatchService {
         smartWatch.setPrice(s.nextDouble());
         ReaderWriterService.writer(PATH_SM, smartWatch.toString());
     }
+
     public static void search() throws IOException {
         Scanner ss = new Scanner(System.in);
         System.out.println("Enter model name");
-        printWatchInfo(ShopItemService.searchByModel(smartWatchReader(),ss.nextLine()));
+        printWatchInfo(ShopItemService.searchByModel(smartWatchReader(), ss.nextLine()));
+    }
+
+    public static void deleteSmartWatch() throws IOException {
+        Scanner ss = new Scanner(System.in);
+
+        ReaderWriterService.deleteLine(PATH_SM, ss.nextLine());
+
     }
 
 }

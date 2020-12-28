@@ -24,7 +24,7 @@ public class ShopItemService {
     public static <T extends ShopItemInterface> List<T> searchByModel(List<T> shopItems, String model) {
         List<T> searchMatches = new ArrayList<>();
         for (T x : shopItems) {
-            if (x.getModel().equalsIgnoreCase(model)) {
+            if (x.getModel().contains(model)) {
                 searchMatches.add(x);
             }
         }
