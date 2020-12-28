@@ -14,10 +14,10 @@ public class PhoneService {
 
     public static List<Phone> phoneReader() throws IOException {
         List<Phone> listOfPhones = new ArrayList<>();
-        Phone phone = new Phone();
         List<String> lines = ReaderWriterService.reader(PHONE_PHAT);
         for (String x : lines) {
-           String[] phoneParameter =  x.split(",");
+            Phone phone = new Phone();
+            String[] phoneParameter = x.split(",");
             phone.setModel(phoneParameter[0]);
             phone.setBatteryCap(Integer.parseInt(phoneParameter[1]));
             phone.setScreenSize(Double.parseDouble(phoneParameter[2]));
@@ -49,18 +49,19 @@ public class PhoneService {
         phone.setScreenResolution(s.nextLine());
         System.out.println("Enter the price");
         phone.setPrice(s.nextDouble());
-            ReaderWriterService.writer(PHONE_PHAT,phone.toString());
+        ReaderWriterService.writer(PHONE_PHAT, phone.toString());
     }
+
     public static void search() throws IOException {
         Scanner ss = new Scanner(System.in);
         System.out.println("Enter model name");
-        printPhoneInfo(ShopItemService.searchByModel(phoneReader(),ss.nextLine()));
+        printPhoneInfo(ShopItemService.searchByModel(phoneReader(), ss.nextLine()));
     }
 
 
     public static void deletePhone() throws IOException {
         Scanner ss = new Scanner(System.in);
-        ReaderWriterService.deleteLine(PHONE_PHAT,ss.nextLine());
+        ReaderWriterService.deleteLine(PHONE_PHAT, ss.nextLine());
     }
 
 }

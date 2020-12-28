@@ -30,7 +30,7 @@ public class ReaderWriterService {
         while((currentLine = reader.readLine()) != null) {
             // trim newline when comparing with lineToRemove
             String trimmedLine = currentLine.trim();
-            if(trimmedLine.contains(id)) continue;
+            if(trimmedLine.contains(id+",")) continue;
             writer.write(currentLine + System.getProperty("line.separator"));
         }
         writer.close();

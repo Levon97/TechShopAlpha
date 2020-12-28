@@ -14,16 +14,15 @@ public class SmartWatchService {
     public static List<SmartWatch> smartWatchReader() throws IOException {
         List<String> lines = ReaderWriterService.reader(PATH_SM);
         List<SmartWatch> listOfSW = new ArrayList<>();
-        SmartWatch smartWatch = new SmartWatch();
         for (String x : lines) {
-            String[] sWParameters = x.split(",");
             SmartWatch watch = new SmartWatch();
+            String[] sWParameters = x.split(",");
             watch.setModel(sWParameters[0]);
             watch.setBatteryCap(Integer.parseInt(sWParameters[1]));
             watch.setStrapLength(Double.parseDouble(sWParameters[2]));
             watch.setHeartRateSensor(sWParameters[3].charAt(0));
             watch.setPrice(Double.parseDouble(sWParameters[4]));
-            listOfSW.add(smartWatch);
+            listOfSW.add(watch);
         }
         return listOfSW;
     }

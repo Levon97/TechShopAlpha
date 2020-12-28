@@ -18,7 +18,6 @@ import java.util.regex.Pattern;
 public class Authorization {
     static Scanner ss = new Scanner(System.in);
     private static String a;
-    private static HashMap<String, User> userData = new HashMap<>();
     private static final String FILE = "data/usersDataBase.txt";
     private static final String PASSWORD_PATTERN = "^(?=(?:.*[A-Z].*){2})(?!(?:.*[A-Z].*){3,})(?=(?:.*\\d.*){3})(?!(?:.*\\d.*){4,}).{8,}$";
     private static final String USERNAME_PATTERN = "^.{10,}$";
@@ -81,10 +80,11 @@ public class Authorization {
         }
     }
 
-    private static void getUsers() throws IOException {
+    private static HashMap<String, User> getUsers() throws IOException {
         List<String> lines = Files.readAllLines(Paths.get(FILE));
-        User user = new User();
+        HashMap<String, User> userData = new HashMap<>();
         for (String x : lines) {
+            User user = new User();
             String[] k = x.split(",");
             user.setName(k[0]);
             user.setLastName(k[1]);
@@ -92,7 +92,9 @@ public class Authorization {
             user.seteMail(k[3]);
             user.setMd5Pass(k[4]);
             userData.put(k[2], user);
+
         }
+        return userData;
     }
 
     private static void addUser(User user) throws IOException {
@@ -101,15 +103,14 @@ public class Authorization {
     }
 
     private static boolean checkLogin(String login, String password) throws IOException {
-        getUsers();
 
-        return userData.containsKey(login) && userData.get(login).getMd5Pass().equals(passwordToMd5(password));
+        return getUsers().containsKey(login) && getUsers().get(login).getMd5Pass().equals(passwordToMd5(password));
     }
 
     private static boolean userNameAlreadyExists(String userName) throws IOException {
-        getUsers();
 
-        return userData.containsKey(userName);
+
+        return getUsers().containsKey(userName);
     }
 
     // text validation checker  with pattern:
